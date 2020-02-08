@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 p "Seeding database..."
+
 p "Creating races..."
 
 Race.create([
@@ -57,13 +58,16 @@ Character.create([
   { name: "HalflingCleric", strength: 2, dexterity: 2, constitution: 2, intelligence: 2, wisdom: 2, charisma: 2 }
 ])
 
-p "Creating joins..."
+p "Creating race joins..."
 
 Character.find(1).race_joins.create(race_id: 1)
 Character.find(2).race_joins.create(race_id: 2)
 Character.find(2).race_joins.create(race_id: 2)
-Character.find(1).class_joins.create(class_id: 1)
-Character.find(2).class_joins.create(class_id: 2)
-Character.find(3).class_joins.create(class_id: 3)
+
+p "Creating class joins..."
+
+Character.find(1).class_joins.create(char_class_id: 1)
+Character.find(2).class_joins.create(char_class_id: 2)
+Character.find(3).class_joins.create(char_class_id: 3)
 
 p "Done seeding."

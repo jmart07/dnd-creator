@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :class_joins
-  resources :race_joins
+  resources :class_joins, only: [:index, :show]
+  resources :race_joins, only: [:index, :show]
   resources :abilities, only: [:index, :show]
   resources :char_classes, only: [:index, :show]
   resources :races, only: [:index, :show]
