@@ -1,3 +1,4 @@
 class Race < ApplicationRecord
-  belongs_to :character
+  has_many :race_joins
+  has_many :characters, through: :race_joins
 end

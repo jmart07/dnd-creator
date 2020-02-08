@@ -1,3 +1,4 @@
 class CharClass < ApplicationRecord
-  # belongs_to :character
+  has_many :class_joins
+  has_many :characters, through: :class_joins
 end
