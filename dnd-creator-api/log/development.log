@@ -1526,3 +1526,1713 @@ Completed 200 OK in 40ms (Views: 0.7ms | ActiveRecord: 7.7ms | Allocations: 9306
   [1m[36mCharClass Load (0.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" WHERE "char_classes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
   [1m[36mClassJoin Create (0.5ms)[0m  [1m[32mINSERT INTO "class_joins" ("character_id", "char_class_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["character_id", 3], ["char_class_id", 3], ["created_at", "2020-02-08 14:33:13.331741"], ["updated_at", "2020-02-08 14:33:13.331741"]]
   [1m[35m (20.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/characters/1" for ::1 at 2020-02-08 09:37:46 -0500
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:45:in `set_character'
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 5.8ms | Allocations: 11689)
+
+
+  
+NoMethodError (undefined method `char_class' for #<Character:0x00007f0d8c6be720>
+Did you mean?  char_classes
+               char_classes=):
+  
+app/controllers/characters_controller.rb:13:in `show'
+Started GET "/characters/1" for ::1 at 2020-02-08 09:38:03 -0500
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCharacter Load (0.6ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:45:in `set_character'
+  [1m[36mCharClass Load (1.0ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:14:in `show'
+Completed 200 OK in 47ms (Views: 14.5ms | ActiveRecord: 9.2ms | Allocations: 17370)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:38:03 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:39:22 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+Completed 200 OK in 51ms (Views: 0.4ms | ActiveRecord: 9.2ms | Allocations: 16529)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 09:39:43 -0500
+  
+SyntaxError (/home/john/Desktop/portfolio/dnd-creator/dnd-creator-api/app/controllers/characters_controller.rb:8: syntax error, unexpected ')', expecting =>
+...include: :races, :char_classes)
+...                              ^
+/home/john/Desktop/portfolio/dnd-creator/dnd-creator-api/app/controllers/characters_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/characters_controller.rb:8: syntax error, unexpected ')', expecting =>
+app/controllers/characters_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/characters_controller.rb:8: syntax error, unexpected ')', expecting =>
+app/controllers/characters_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:39:43 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:39:54 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.6ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mRace Load (0.7ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mRace Load (1.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+Completed 200 OK in 55ms (Views: 0.2ms | ActiveRecord: 13.6ms | Allocations: 17187)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:39:54 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:40:03 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.7ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mRace Load (1.1ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+Completed 200 OK in 71ms (Views: 0.2ms | ActiveRecord: 17.6ms | Allocations: 17046)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:40:03 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:41:36 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (1.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mRace Load (1.1ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+Completed 200 OK in 57ms (Views: 0.2ms | ActiveRecord: 16.2ms | Allocations: 17024)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:41:36 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:41:51 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.5ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mCharClass Load (1.1ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+Completed 200 OK in 71ms (Views: 0.4ms | ActiveRecord: 14.9ms | Allocations: 20871)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:41:51 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:42:20 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.7ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mRace Load (1.0ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mRace Load (0.8ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+Completed 200 OK in 51ms (Views: 0.1ms | ActiveRecord: 12.8ms | Allocations: 21414)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:42:20 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:42:30 -0500
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.6ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mCharClass Load (1.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mCharClass Load (1.0ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+Completed 200 OK in 62ms (Views: 0.1ms | ActiveRecord: 14.9ms | Allocations: 20871)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:42:30 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:43:39 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/john/Desktop/portfolio/dnd-creator/dnd-creator-api/app/controllers/characters_controller.rb:8: syntax error, unexpected =>
+...@characters.to_json(include: => :races, include: => :char_cl...
+...                             ^~
+/home/john/Desktop/portfolio/dnd-creator/dnd-creator-api/app/controllers/characters_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/characters_controller.rb:8: syntax error, unexpected =>
+app/controllers/characters_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/characters_controller.rb:8: syntax error, unexpected =>
+app/controllers/characters_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:43:40 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:46:08 -0500
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#index as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2768)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/characters_controller.rb:8:in `index'
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:46:08 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:46:33 -0500
+  
+SyntaxError (/home/john/Desktop/portfolio/dnd-creator/dnd-creator-api/app/controllers/characters_controller.rb:8: syntax error, unexpected ')', expecting =>
+...include: :races, :char_classes)
+...                              ^
+/home/john/Desktop/portfolio/dnd-creator/dnd-creator-api/app/controllers/characters_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/characters_controller.rb:8: syntax error, unexpected ')', expecting =>
+app/controllers/characters_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/characters_controller.rb:8: syntax error, unexpected ')', expecting =>
+app/controllers/characters_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:46:33 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:46:43 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/john/Desktop/portfolio/dnd-creator/dnd-creator-api/app/controllers/characters_controller.rb:8: syntax error, unexpected ')', expecting =>
+...include: :races, :char_classes)
+...                              ^
+/home/john/Desktop/portfolio/dnd-creator/dnd-creator-api/app/controllers/characters_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/characters_controller.rb:8: syntax error, unexpected ')', expecting =>
+app/controllers/characters_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/characters_controller.rb:8: syntax error, unexpected ')', expecting =>
+app/controllers/characters_controller.rb:52: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:46:43 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:47:27 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/john/Desktop/portfolio/dnd-creator/dnd-creator-api/app/controllers/characters_controller.rb:7: syntax error, unexpected '}', expecting =>
+...nclude: :races, :char_classes })
+...                              ^
+/home/john/Desktop/portfolio/dnd-creator/dnd-creator-api/app/controllers/characters_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/characters_controller.rb:7: syntax error, unexpected '}', expecting =>
+app/controllers/characters_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/characters_controller.rb:7: syntax error, unexpected '}', expecting =>
+app/controllers/characters_controller.rb:51: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:47:28 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 09:48:51 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (1.6ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (1.1ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (1.0ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.6ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.6ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.8ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 93ms (Views: 0.1ms | ActiveRecord: 20.8ms | Allocations: 29990)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:48:52 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters/1" for ::1 at 2020-02-08 09:49:07 -0500
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:44:in `set_character'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:13:in `show'
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 0.7ms | Allocations: 2079)
+
+
+Started GET "/characters/1" for ::1 at 2020-02-08 09:49:37 -0500
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCharacter Load (0.5ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:44:in `set_character'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:13:in `show'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:13:in `show'
+Completed 200 OK in 61ms (Views: 0.3ms | ActiveRecord: 14.4ms | Allocations: 20977)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 09:49:37 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/characters/" for ::1 at 2020-02-08 09:57:38 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test", "strength"=>"4", "dexterity"=>"4", "constitution"=>"4", "intelligence"=>"4", "wisdom"=>"4", "charisma"=>"4"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 188)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 09:58:28 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test", "strength"=>"4"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 157)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:11:08 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test", "strength"=>"4"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 157)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:11:34 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 154)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:20:03 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/john/Desktop/portfolio/dnd-creator/dnd-creator-api/app/controllers/characters_controller.rb:56: syntax error, unexpected ')', expecting `end'
+      )
+      ^
+):
+  
+app/controllers/characters_controller.rb:56: syntax error, unexpected ')', expecting `end'
+app/controllers/characters_controller.rb:56: syntax error, unexpected ')', expecting `end'
+Started POST "/characters/" for ::1 at 2020-02-08 10:20:32 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test", "strength"=>"4"}}
+Completed 400 Bad Request in 7ms (ActiveRecord: 0.0ms | Allocations: 2743)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/characters_controller.rb:49:in `character_params'
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:21:18 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"\"test\"", "strength"=>"4"}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 125)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/characters_controller.rb:49:in `character_params'
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:21:51 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test"}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 124)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/characters_controller.rb:49:in `character_params'
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:22:04 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test"}}
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms | Allocations: 2742)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/characters_controller.rb:49:in `character_params'
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:22:34 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test"}}
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 0.0ms | Allocations: 33461)
+
+
+  
+NoMethodError (undefined method `permit' for #<CharactersController:0x00007f0f0481f848>
+Did you mean?  print):
+  
+app/controllers/characters_controller.rb:49:in `character_params'
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:22:49 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test"}}
+[31mUnpermitted parameter: :character[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:20:in `create'
+  [1m[36mCharacter Create (36.3ms)[0m  [1m[32mINSERT INTO "characters" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-02-08 15:22:49.976220"], ["updated_at", "2020-02-08 15:22:49.976220"]]
+  ↳ app/controllers/characters_controller.rb:20:in `create'
+  [1m[35m (41.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:20:in `create'
+Completed 201 Created in 107ms (Views: 2.2ms | ActiveRecord: 82.2ms | Allocations: 10373)
+
+
+Started POST "/characters/" for ::1 at 2020-02-08 10:23:21 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test"}}
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms | Allocations: 2275)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/characters_controller.rb:49:in `character_params'
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:23:45 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"strength"=>"4"}}
+[31mUnpermitted parameter: :character[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:20:in `create'
+  [1m[36mCharacter Create (0.8ms)[0m  [1m[32mINSERT INTO "characters" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-02-08 15:23:45.598780"], ["updated_at", "2020-02-08 15:23:45.598780"]]
+  ↳ app/controllers/characters_controller.rb:20:in `create'
+  [1m[35m (16.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:20:in `create'
+Completed 201 Created in 51ms (Views: 1.3ms | ActiveRecord: 20.4ms | Allocations: 9607)
+
+
+Started POST "/characters/" for ::1 at 2020-02-08 10:25:27 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"strength"=>"4"}}
+Completed 400 Bad Request in 8ms (ActiveRecord: 0.0ms | Allocations: 2755)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/characters_controller.rb:50:in `character_params'
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:26:08 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test", "strength"=>"4"}}
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms | Allocations: 2762)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/characters_controller.rb:51:in `character_params'
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:26:44 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test", "strength"=>"4"}}
+Completed 404 Not Found in 26ms (ActiveRecord: 11.3ms | Allocations: 3672)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Character without an ID):
+  
+app/controllers/characters_controller.rb:44:in `set_character'
+Started POST "/characters/" for ::1 at 2020-02-08 10:27:56 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test", "strength"=>"4"}}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms | Allocations: 2733)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/characters_controller.rb:51:in `character_params'
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:30:28 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test", "strength"=>"4"}}
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms | Allocations: 2733)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/characters_controller.rb:51:in `character_params'
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:31:21 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test"}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 130)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/characters_controller.rb:51:in `character_params'
+app/controllers/characters_controller.rb:18:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:32:04 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test"}}
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms | Allocations: 2264)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/characters_controller.rb:53:in `character_params'
+app/controllers/characters_controller.rb:20:in `create'
+Started POST "/characters/" for ::1 at 2020-02-08 10:32:47 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test"}}
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 4.7ms | Allocations: 8213)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'controller' for Character.):
+  
+app/controllers/characters_controller.rb:20:in `create'
+Started GET "/" for ::1 at 2020-02-08 10:34:18 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/john/.rvm/gems/ruby-2.7.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/john/.rvm/gems/ruby-2.7.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.4ms | Allocations: 295)
+Completed 200 OK in 14ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 1542)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 10:34:21 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (1.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (1.9ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (1.8ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (2.0ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.8ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (1.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 4]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.6ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 4]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 5]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.6ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 5]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 137ms (Views: 0.1ms | ActiveRecord: 28.8ms | Allocations: 26203)
+
+
+Started DELETE "/characters/4" for ::1 at 2020-02-08 10:35:41 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 614)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/characters_controller.rb:40:in `destroy'
+Started GET "/characters" for ::1 at 2020-02-08 10:35:58 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 4]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 4]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 5]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.1ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 5]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 72ms (Views: 0.4ms | ActiveRecord: 17.0ms | Allocations: 29575)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 10:35:58 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started DELETE "/characters/4" for ::1 at 2020-02-08 10:36:27 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 620)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/characters_controller.rb:40:in `destroy'
+Started DELETE "/characters/4" for ::1 at 2020-02-08 10:37:54 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 660)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/characters_controller.rb:40:in `destroy'
+Started DELETE "/characters/4" for ::1 at 2020-02-08 10:38:03 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"4"}
+Completed 404 Not Found in 10ms (ActiveRecord: 3.4ms | Allocations: 3686)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Character without an ID):
+  
+app/controllers/characters_controller.rb:40:in `destroy'
+Started GET "/characters" for ::1 at 2020-02-08 10:38:09 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.9ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.6ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (1.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 4]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 4]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 5]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 5]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 64ms (Views: 0.1ms | ActiveRecord: 14.8ms | Allocations: 30536)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 10:38:09 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started DELETE "/characters/4" for ::1 at 2020-02-08 10:38:29 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:40:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:40:in `destroy'
+  [1m[36mCharacter Destroy (0.8ms)[0m  [1m[31mDELETE FROM "characters" WHERE "characters"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/characters_controller.rb:40:in `destroy'
+  [1m[35m (42.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:40:in `destroy'
+Completed 204 No Content in 68ms (ActiveRecord: 46.5ms | Allocations: 9460)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 10:38:32 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.1ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 5]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.1ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 5]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 55ms (Views: 0.2ms | ActiveRecord: 11.2ms | Allocations: 20609)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 10:38:33 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started DELETE "/characters/5" for ::1 at 2020-02-08 10:38:52 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"5"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 658)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/characters_controller.rb:40:in `destroy'
+Started DELETE "/characters/5" for ::1 at 2020-02-08 10:39:01 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:40:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:40:in `destroy'
+  [1m[36mCharacter Destroy (2.9ms)[0m  [1m[31mDELETE FROM "characters" WHERE "characters"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/characters_controller.rb:40:in `destroy'
+  [1m[35m (43.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:40:in `destroy'
+Completed 204 No Content in 82ms (ActiveRecord: 54.7ms | Allocations: 10656)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 10:39:03 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.6ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (0.7ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mRace Load (1.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:7:in `index'
+Completed 200 OK in 51ms (Views: 0.1ms | ActiveRecord: 12.0ms | Allocations: 21705)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 10:39:03 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/characters/5" for ::1 at 2020-02-08 10:40:56 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/characters/5"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/characters" for ::1 at 2020-02-08 10:41:04 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"name"=>"test"}
+Completed 404 Not Found in 12ms (ActiveRecord: 5.4ms | Allocations: 2936)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Character without an ID):
+  
+app/controllers/characters_controller.rb:46:in `set_character'
+Started POST "/characters" for ::1 at 2020-02-08 10:41:20 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"name"=>"test"}
+Completed 404 Not Found in 17ms (ActiveRecord: 4.9ms | Allocations: 3676)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Character without an ID):
+  
+app/controllers/characters_controller.rb:46:in `set_character'
+Started POST "/characters" for ::1 at 2020-02-08 10:42:10 -0500
+Processing by CharactersController#create as */*
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 120)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Character without an ID):
+  
+app/controllers/characters_controller.rb:46:in `set_character'
+Started POST "/characters" for ::1 at 2020-02-08 10:42:48 -0500
+Processing by CharactersController#create as */*
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 5.2ms | Allocations: 7573)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'controller' for Character.):
+  
+app/controllers/characters_controller.rb:20:in `create'
+Started POST "/characters" for ::1 at 2020-02-08 10:42:59 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 5.4ms | Allocations: 8167)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'controller' for Character.):
+  
+app/controllers/characters_controller.rb:20:in `create'
+Started POST "/characters" for ::1 at 2020-02-08 10:43:32 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"name"=>"test"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 211)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'controller' for Character.):
+  
+app/controllers/characters_controller.rb:20:in `create'
+Started GET "/characters" for ::1 at 2020-02-08 10:46:54 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (1.5ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (2.7ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.6ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (2.0ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 153ms (Views: 0.6ms | ActiveRecord: 38.7ms | Allocations: 29973)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 10:46:55 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters/1" for ::1 at 2020-02-08 10:47:07 -0500
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 83)
+
+
+Started GET "/characters/1" for ::1 at 2020-02-08 10:47:32 -0500
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:53:in `set_character'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:16:in `show'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:16:in `show'
+Completed 200 OK in 64ms (Views: 0.1ms | ActiveRecord: 17.9ms | Allocations: 20996)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 10:47:32 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/characters" for ::1 at 2020-02-08 10:49:40 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.6ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.9ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.8ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 97ms (Views: 0.1ms | ActiveRecord: 23.2ms | Allocations: 25504)
+
+
+Started POST "/characters" for ::1 at 2020-02-08 10:50:20 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"name"=>"test"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 273)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'controller' for Character.):
+  
+app/controllers/characters_controller.rb:24:in `create'
+Started POST "/characters" for ::1 at 2020-02-08 10:50:28 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"name"=>"test"}
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 7.2ms | Allocations: 8188)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'controller' for Character.):
+  
+app/controllers/characters_controller.rb:24:in `create'
+Started POST "/characters" for ::1 at 2020-02-08 10:51:17 -0500
+Processing by CharactersController#create as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 191)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'controller' for Character.):
+  
+app/controllers/characters_controller.rb:24:in `create'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(727155331870242975)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(727155331870242975)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/characters" for ::1 at 2020-02-08 10:52:26 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 4.6ms | Allocations: 8167)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'controller' for Character.):
+  
+app/controllers/characters_controller.rb:24:in `create'
+Started POST "/characters" for ::1 at 2020-02-08 10:53:05 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 236)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'controller' for Character.):
+  
+app/controllers/characters_controller.rb:24:in `create'
+Started POST "/characters" for ::1 at 2020-02-08 10:54:03 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test"}}
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms | Allocations: 2734)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/characters_controller.rb:64:in `character_params'
+app/controllers/characters_controller.rb:24:in `create'
+Started POST "/characters" for ::1 at 2020-02-08 10:59:02 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:26:in `create'
+  [1m[36mCharacter Create (0.9ms)[0m  [1m[32mINSERT INTO "characters" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "test"], ["created_at", "2020-02-08 15:59:02.313795"], ["updated_at", "2020-02-08 15:59:02.313795"]]
+  ↳ app/controllers/characters_controller.rb:26:in `create'
+  [1m[35m (19.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:26:in `create'
+Completed 201 Created in 53ms (Views: 1.6ms | ActiveRecord: 28.3ms | Allocations: 10859)
+
+
+Started DELETE "/characters/6" for ::1 at 2020-02-08 10:59:43 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"character"=>{"name"=>"test"}, "id"=>"6"}
+  [1m[36mCharacter Load (0.5ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:56:in `set_character'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.7ms | Allocations: 2164)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/characters_controller.rb:50:in `destroy'
+Started DELETE "/characters/6" for ::1 at 2020-02-08 10:59:54 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:56:in `set_character'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.3ms | Allocations: 622)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/characters_controller.rb:50:in `destroy'
+Started DELETE "/characters/6" for ::1 at 2020-02-08 11:00:58 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"6"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 663)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/characters_controller.rb:50:in `destroy'
+Started GET "/characters" for ::1 at 2020-02-08 11:01:05 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (1.1ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.7ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.6ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.9ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 6]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 6]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 98ms (Views: 0.1ms | ActiveRecord: 21.0ms | Allocations: 32017)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 11:01:06 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started DELETE "/characters/6" for ::1 at 2020-02-08 11:03:17 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mCharacter Load (0.5ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:56:in `set_character'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:50:in `destroy'
+  [1m[36mCharacter Destroy (0.9ms)[0m  [1m[31mDELETE FROM "characters" WHERE "characters"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/characters_controller.rb:50:in `destroy'
+  [1m[35m (38.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:50:in `destroy'
+Completed 204 No Content in 77ms (ActiveRecord: 46.3ms | Allocations: 10621)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 11:03:20 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.8ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 51ms (Views: 0.1ms | ActiveRecord: 9.9ms | Allocations: 21692)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 11:03:20 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/characters/6" for ::1 at 2020-02-08 11:03:58 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/characters/6"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/characters" for ::1 at 2020-02-08 11:04:05 -0500
+Processing by CharactersController#create as */*
+  Parameters: {"character"=>{"name"=>"test1"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:26:in `create'
+  [1m[36mCharacter Create (0.4ms)[0m  [1m[32mINSERT INTO "characters" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "test1"], ["created_at", "2020-02-08 16:04:05.591410"], ["updated_at", "2020-02-08 16:04:05.591410"]]
+  ↳ app/controllers/characters_controller.rb:26:in `create'
+  [1m[35m (31.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:26:in `create'
+Completed 201 Created in 56ms (Views: 1.2ms | ActiveRecord: 35.9ms | Allocations: 9920)
+
+
+Started DELETE "/characters/7" for ::1 at 2020-02-08 11:04:16 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"7"}
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:56:in `set_character'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/characters_controller.rb:50:in `destroy'
+  [1m[36mCharacter Destroy (0.5ms)[0m  [1m[31mDELETE FROM "characters" WHERE "characters"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/characters_controller.rb:50:in `destroy'
+  [1m[35m (39.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/characters_controller.rb:50:in `destroy'
+Completed 200 OK in 45ms (Views: 0.4ms | ActiveRecord: 40.4ms | Allocations: 2475)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 11:04:20 -0500
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 58ms (Views: 0.1ms | ActiveRecord: 12.2ms | Allocations: 18564)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-08 11:04:21 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started DELETE "/characters/7" for ::1 at 2020-02-08 11:04:25 -0500
+Processing by CharactersController#destroy as */*
+  Parameters: {"id"=>"7"}
+  [1m[36mCharacter Load (0.9ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:56:in `set_character'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.9ms | Allocations: 602)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Character with 'id'=7):
+  
+app/controllers/characters_controller.rb:56:in `set_character'
+app/controllers/characters_controller.rb:49:in `destroy'
