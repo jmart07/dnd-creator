@@ -18,5 +18,5 @@ class CharClassesController < ApplicationController
     def set_char_class
       @char_class = CharClass.find(params[:id])
     end
-    
+
 end
