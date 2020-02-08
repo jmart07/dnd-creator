@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Character.create([
+  { name: "DwarfBarb", strength: 0, dexterity: 0, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0, race_id: 0, class_id: 0 },
+  { name: "ElfBard", strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1, race_id: 1, class_id: 1 },
+  { name: "HalflingCleric", strength: 2, dexterity: 2, constitution: 2, intelligence: 2, wisdom: 2, charisma: 2, race_id: 2, class_id: 2 }
+])
+
 Race.create([
   { name: "Dwarf", ability_buff: [0,0,2,0,0,0], speed: 25, size: "Medium" },
   { name: "Elf", ability_buff: [0,2,0,0,0,0], speed: 30, size: "Medium" },
