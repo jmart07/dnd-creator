@@ -4189,3 +4189,629 @@ Processing by CharactersController#create as */*
 Completed 201 Created in 250ms (Views: 2.0ms | ActiveRecord: 106.9ms | Allocations: 40145)
 
 
+Started GET "/characters/1" for ::1 at 2020-02-08 12:39:13 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mCharacter Load (0.5ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:57:in `set_character'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:17:in `show'
+  [1m[36mCharClass Load (1.7ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:17:in `show'
+Completed 200 OK in 87ms (Views: 0.1ms | ActiveRecord: 22.9ms | Allocations: 25312)
+
+
+Started GET "/characters/1" for ::1 at 2020-02-08 12:39:19 -0500
+Processing by CharactersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:57:in `set_character'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:17:in `show'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:17:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 2831)
+
+
+Started GET "/characters/1" for ::1 at 2020-02-08 12:39:24 -0500
+Processing by CharactersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters" WHERE "characters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:57:in `set_character'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:17:in `show'
+  [1m[36mCharClass Load (0.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:17:in `show'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 2831)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:41:45 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.9ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 44ms (Views: 0.1ms | ActiveRecord: 5.8ms | Allocations: 14014)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:42:18 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.5ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (2.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.6ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.0ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.1ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.9ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.9ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.8ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 117ms (Views: 0.3ms | ActiveRecord: 13.9ms | Allocations: 13994)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:42:33 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.9ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.9ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 45ms (Views: 0.2ms | ActiveRecord: 5.2ms | Allocations: 13993)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:43:08 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.7ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.9ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.6ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 51ms (Views: 0.6ms | ActiveRecord: 6.3ms | Allocations: 13994)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:44:09 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.7ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.6ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.8ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 47ms (Views: 0.7ms | ActiveRecord: 5.3ms | Allocations: 13992)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:45:05 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.6ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.9ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.7ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.7ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 60ms (Views: 0.8ms | ActiveRecord: 9.0ms | Allocations: 13993)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:45:24 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (2.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.0ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.0ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.7ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.0ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.0ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 67ms (Views: 0.1ms | ActiveRecord: 10.2ms | Allocations: 13992)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:45:42 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.8ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.9ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (3.1ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 51ms (Views: 0.2ms | ActiveRecord: 8.2ms | Allocations: 13993)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:45:51 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.6ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.8ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.6ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (2.0ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 62ms (Views: 0.2ms | ActiveRecord: 6.9ms | Allocations: 14013)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:46:03 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.8ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.8ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.8ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.9ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.9ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 66ms (Views: 0.2ms | ActiveRecord: 8.3ms | Allocations: 13993)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:47:32 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (3.1ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.1ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 53ms (Views: 0.4ms | ActiveRecord: 10.1ms | Allocations: 13992)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:48:27 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.0ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.7ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.0ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.7ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.9ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.6ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.7ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.8ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 65ms (Views: 0.5ms | ActiveRecord: 9.1ms | Allocations: 13993)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:49:17 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.7ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.8ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.7ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.0ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.7ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.6ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 73ms (Views: 0.7ms | ActiveRecord: 7.7ms | Allocations: 13993)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:49:43 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.9ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.6ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.8ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 49ms (Views: 0.5ms | ActiveRecord: 6.9ms | Allocations: 13993)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:50:23 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.8ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.0ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.6ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.9ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 66ms (Views: 0.6ms | ActiveRecord: 7.5ms | Allocations: 13996)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 12:55:44 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.6ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.7ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.0ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.1ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 60ms (Views: 0.2ms | ActiveRecord: 6.8ms | Allocations: 13993)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 13:18:11 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (2.2ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (2.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.5ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.6ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.8ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.8ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.9ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 74ms (Views: 0.2ms | ActiveRecord: 16.9ms | Allocations: 14149)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 13:20:39 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.0ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.8ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.9ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.2ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.3ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (1.0ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.0ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 67ms (Views: 0.6ms | ActiveRecord: 9.2ms | Allocations: 13993)
+
+
+Started GET "/characters" for ::1 at 2020-02-08 13:21:25 -0500
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.9ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 1]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.6ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 2]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 3]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.6ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 13]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (0.8ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 14]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mRace Load (0.5ms)[0m  [1m[34mSELECT "races".* FROM "races" INNER JOIN "race_joins" ON "races"."id" = "race_joins"."race_id" WHERE "race_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+  [1m[36mCharClass Load (1.2ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" INNER JOIN "class_joins" ON "char_classes"."id" = "class_joins"."char_class_id" WHERE "class_joins"."character_id" = $1[0m  [["character_id", 15]]
+  ↳ app/controllers/characters_controller.rb:9:in `index'
+Completed 200 OK in 82ms (Views: 0.6ms | ActiveRecord: 9.1ms | Allocations: 13993)
+
+
