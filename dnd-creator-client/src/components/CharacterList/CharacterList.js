@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import CharacterShow from '../CharacterShow/CharacterShow.js';
 
 class CharacterList extends Component {
+  state = {
+    characters: []
+  }
 
   componentDidMount() {
     this.getCharacters();
@@ -9,7 +13,8 @@ class CharacterList extends Component {
   getCharacters = () => {
     fetch('http://localhost:3000/characters')
       .then(response => response.json())
-      .then(json => this.prepareData(json));
+      .then(json => this.prepareData(json))
+      .then(data => this.createCharacters(data));
   }
 
   prepareData = (data) => {
@@ -17,19 +22,28 @@ class CharacterList extends Component {
 
     const charData = [];
     data.forEach((character) => {
-      charData.push(`<h2>${character.name}</h2>`)
+      charData.push(character)
     });
 
-    return charData
+    return charData;
+  }
+
+  createCharacters = (data) => {
+    const allCharacters = [];
+    data.map((character, i) => {
+      allCharacters.push(character);
+    });
+    this.setState({characters: allCharacters});
   }
 
   render() {
     return(
-      <>
-        <h1>Characters</h1>
-
-      </>
-    );
+      <div>
+        {this.state.characters.map((character, i) => {
+          return <CharacterShow key={i} character={character}/>
+        })}
+      </div>
+    )
   }
 }
 
