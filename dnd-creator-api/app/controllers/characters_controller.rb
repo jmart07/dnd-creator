@@ -21,13 +21,14 @@ class CharactersController < ApplicationController
   def create
     p "Character create route accessed"
 
-    @character = Character.new(character_params)
+    # Is using multiple private params methods appropriate?
+    # Is it safe to create directly or should .save be used?
+    @character = Character.create(character_params)
+    @race_join = @character.race_joins.create(race_joins_params)
+    @class_join = @character.class_joins.create(class_joins_params)
 
-    if @character.save
-      render json: @character, status: :created, location: @character
-    else
-      render json: @character.errors, status: :unprocessable_entity
-    end
+    render json: @character.to_json(:include => [:races, :char_classes]), status: :created, location: @character
+
   end
 
   # PATCH/PUT /characters/1
@@ -68,7 +69,15 @@ class CharactersController < ApplicationController
         :constitution,
         :intelligence,
         :wisdom,
-        :charisma
+        :charisma,
       )
+    end
+
+    def race_joins_params
+      params.require(:race_join).permit(:race_id)
+    end
+
+    def class_joins_params
+      params.require(:class_join).permit(:char_class_id)
     end
 end
