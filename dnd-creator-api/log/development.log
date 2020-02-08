@@ -50,3 +50,160 @@ Migrating to ChangeHpBuffToModifierInCharClasses (20200208043112)
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(727155331870242975)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRace Create (0.6ms)[0m  [1m[32mINSERT INTO "races" ("name", "ability_buff", "speed", "size", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Dwarf"], ["ability_buff", "{0,0,2,0,0,0}"], ["speed", 25], ["size", "Medium"], ["created_at", "2020-02-08 04:43:00.685868"], ["updated_at", "2020-02-08 04:43:00.685868"]]
+  [1m[35m (28.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRace Create (0.4ms)[0m  [1m[32mINSERT INTO "races" ("name", "ability_buff", "speed", "size", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Elf"], ["ability_buff", "{0,2,0,0,0,0}"], ["speed", 30], ["size", "Medium"], ["created_at", "2020-02-08 04:43:00.720320"], ["updated_at", "2020-02-08 04:43:00.720320"]]
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRace Create (0.2ms)[0m  [1m[32mINSERT INTO "races" ("name", "ability_buff", "speed", "size", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Halfling"], ["ability_buff", "{0,2,0,0,0,0}"], ["speed", 25], ["size", "Small"], ["created_at", "2020-02-08 04:43:00.731199"], ["updated_at", "2020-02-08 04:43:00.731199"]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRace Create (0.2ms)[0m  [1m[32mINSERT INTO "races" ("name", "ability_buff", "speed", "size", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Human"], ["ability_buff", "{1,1,1,1,1,1}"], ["speed", 30], ["size", "Medium"], ["created_at", "2020-02-08 04:43:00.742306"], ["updated_at", "2020-02-08 04:43:00.742306"]]
+  [1m[35m (52.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRace Create (0.4ms)[0m  [1m[32mINSERT INTO "races" ("name", "ability_buff", "speed", "size", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Dragonborn"], ["ability_buff", "{2,0,0,0,0,1}"], ["speed", 30], ["size", "Medium"], ["created_at", "2020-02-08 04:43:00.798045"], ["updated_at", "2020-02-08 04:43:00.798045"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRace Create (0.4ms)[0m  [1m[32mINSERT INTO "races" ("name", "ability_buff", "speed", "size", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Gnome"], ["ability_buff", "{0,0,0,2,0,0}"], ["speed", 30], ["size", "Small"], ["created_at", "2020-02-08 04:43:00.809034"], ["updated_at", "2020-02-08 04:43:00.809034"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRace Create (0.2ms)[0m  [1m[32mINSERT INTO "races" ("name", "ability_buff", "speed", "size", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Half-Elf"], ["ability_buff", "{0,0,0,0,0,2,-1}"], ["speed", 30], ["size", "Medium"], ["created_at", "2020-02-08 04:43:00.819944"], ["updated_at", "2020-02-08 04:43:00.819944"]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRace Create (0.2ms)[0m  [1m[32mINSERT INTO "races" ("name", "ability_buff", "speed", "size", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Half-Orc"], ["ability_buff", "{2,0,1,0,0,0}"], ["speed", 30], ["size", "Medium"], ["created_at", "2020-02-08 04:43:00.830947"], ["updated_at", "2020-02-08 04:43:00.830947"]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRace Create (0.2ms)[0m  [1m[32mINSERT INTO "races" ("name", "ability_buff", "speed", "size", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tiefling"], ["ability_buff", "{0,0,0,1,0,2}"], ["speed", 30], ["size", "Medium"], ["created_at", "2020-02-08 04:43:00.842064"], ["updated_at", "2020-02-08 04:43:00.842064"]]
+  [1m[35m (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCharClass Create (0.4ms)[0m  [1m[32mINSERT INTO "char_classes" ("name", "modifier", "primary_abilities", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Barbarian"], ["modifier", 12], ["primary_abilities", "{0,2}"], ["created_at", "2020-02-08 04:43:00.860278"], ["updated_at", "2020-02-08 04:43:00.860278"]]
+  [1m[35m (11.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCharClass Create (0.4ms)[0m  [1m[32mINSERT INTO "char_classes" ("name", "modifier", "primary_abilities", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Bard"], ["modifier", 8], ["primary_abilities", "{5,1}"], ["created_at", "2020-02-08 04:43:00.875392"], ["updated_at", "2020-02-08 04:43:00.875392"]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCharClass Create (0.5ms)[0m  [1m[32mINSERT INTO "char_classes" ("name", "modifier", "primary_abilities", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Cleric"], ["modifier", 8], ["primary_abilities", "{4,0}"], ["created_at", "2020-02-08 04:43:00.886615"], ["updated_at", "2020-02-08 04:43:00.886615"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCharClass Create (0.4ms)[0m  [1m[32mINSERT INTO "char_classes" ("name", "modifier", "primary_abilities", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Druid"], ["modifier", 8], ["primary_abilities", "{4,2}"], ["created_at", "2020-02-08 04:43:00.897929"], ["updated_at", "2020-02-08 04:43:00.897929"]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCharClass Create (0.4ms)[0m  [1m[32mINSERT INTO "char_classes" ("name", "modifier", "primary_abilities", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Fighter"], ["modifier", 10], ["primary_abilities", "{0,2}"], ["created_at", "2020-02-08 04:43:00.908753"], ["updated_at", "2020-02-08 04:43:00.908753"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCharClass Create (0.4ms)[0m  [1m[32mINSERT INTO "char_classes" ("name", "modifier", "primary_abilities", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Monk"], ["modifier", 8], ["primary_abilities", "{1,4}"], ["created_at", "2020-02-08 04:43:00.919934"], ["updated_at", "2020-02-08 04:43:00.919934"]]
+  [1m[35m (11.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCharClass Create (0.4ms)[0m  [1m[32mINSERT INTO "char_classes" ("name", "modifier", "primary_abilities", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Paladin"], ["modifier", 10], ["primary_abilities", "{0,5}"], ["created_at", "2020-02-08 04:43:00.941934"], ["updated_at", "2020-02-08 04:43:00.941934"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCharClass Create (0.4ms)[0m  [1m[32mINSERT INTO "char_classes" ("name", "modifier", "primary_abilities", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Ranger"], ["modifier", 10], ["primary_abilities", "{1,4}"], ["created_at", "2020-02-08 04:43:00.953185"], ["updated_at", "2020-02-08 04:43:00.953185"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCharClass Create (0.4ms)[0m  [1m[32mINSERT INTO "char_classes" ("name", "modifier", "primary_abilities", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Rogue"], ["modifier", 8], ["primary_abilities", "{1,3}"], ["created_at", "2020-02-08 04:43:00.964165"], ["updated_at", "2020-02-08 04:43:00.964165"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCharClass Create (0.5ms)[0m  [1m[32mINSERT INTO "char_classes" ("name", "modifier", "primary_abilities", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Sorcerer"], ["modifier", 6], ["primary_abilities", "{5,2}"], ["created_at", "2020-02-08 04:43:00.975334"], ["updated_at", "2020-02-08 04:43:00.975334"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCharClass Create (0.4ms)[0m  [1m[32mINSERT INTO "char_classes" ("name", "modifier", "primary_abilities", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Warlock"], ["modifier", 8], ["primary_abilities", "{5,2}"], ["created_at", "2020-02-08 04:43:00.986347"], ["updated_at", "2020-02-08 04:43:00.986347"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCharClass Create (0.4ms)[0m  [1m[32mINSERT INTO "char_classes" ("name", "modifier", "primary_abilities", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Wizard"], ["modifier", 6], ["primary_abilities", "{3,2}"], ["created_at", "2020-02-08 04:43:00.997175"], ["updated_at", "2020-02-08 04:43:00.997175"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAbility Create (0.5ms)[0m  [1m[32mINSERT INTO "abilities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Strength"], ["created_at", "2020-02-08 04:43:01.016565"], ["updated_at", "2020-02-08 04:43:01.016565"]]
+  [1m[35m (9.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAbility Create (0.4ms)[0m  [1m[32mINSERT INTO "abilities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Dexterity"], ["created_at", "2020-02-08 04:43:01.030220"], ["updated_at", "2020-02-08 04:43:01.030220"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAbility Create (0.4ms)[0m  [1m[32mINSERT INTO "abilities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Constitution"], ["created_at", "2020-02-08 04:43:01.041759"], ["updated_at", "2020-02-08 04:43:01.041759"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAbility Create (0.4ms)[0m  [1m[32mINSERT INTO "abilities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Intelligence"], ["created_at", "2020-02-08 04:43:01.052614"], ["updated_at", "2020-02-08 04:43:01.052614"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAbility Create (0.4ms)[0m  [1m[32mINSERT INTO "abilities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Wisdom"], ["created_at", "2020-02-08 04:43:01.063848"], ["updated_at", "2020-02-08 04:43:01.063848"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAbility Create (0.4ms)[0m  [1m[32mINSERT INTO "abilities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Charisma"], ["created_at", "2020-02-08 04:43:01.074832"], ["updated_at", "2020-02-08 04:43:01.074832"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCharClass Load (0.3ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2020-02-07 23:43:45 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/john/.rvm/gems/ruby-2.7.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/john/.rvm/gems/ruby-2.7.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 24.0ms | Allocations: 407)
+Completed 200 OK in 62ms (Views: 37.2ms | ActiveRecord: 0.0ms | Allocations: 2250)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-02-07 23:43:45 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.2) lib/rack/runtime.rb:24:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.1.2) lib/rack/sendfile.rb:113:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/races" for ::1 at 2020-02-07 23:43:56 -0500
+Processing by RacesController#index as HTML
+  [1m[36mRace Load (0.4ms)[0m  [1m[34mSELECT "races".* FROM "races"[0m
+  ↳ app/controllers/races_controller.rb:8:in `index'
+Completed 200 OK in 41ms (Views: 32.8ms | ActiveRecord: 7.1ms | Allocations: 6433)
+
+
+Started GET "/abilities" for ::1 at 2020-02-07 23:44:04 -0500
+Processing by AbilitiesController#index as HTML
+  [1m[36mAbility Load (0.4ms)[0m  [1m[34mSELECT "abilities".* FROM "abilities"[0m
+  ↳ app/controllers/abilities_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 3.1ms | Allocations: 3441)
+
+
+Started GET "/char_classes" for ::1 at 2020-02-07 23:44:13 -0500
+Processing by CharClassesController#index as HTML
+  [1m[36mCharClass Load (0.4ms)[0m  [1m[34mSELECT "char_classes".* FROM "char_classes"[0m
+  ↳ app/controllers/char_classes_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 12.2ms | ActiveRecord: 3.9ms | Allocations: 5318)
+
+
+Started GET "/characters" for ::1 at 2020-02-07 23:44:56 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (2.1ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 5.1ms | ActiveRecord: 5.7ms | Allocations: 1863)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(727155331870242975)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForeignKeysToCharacters (20200208044636)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "characters" ADD "race_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "characters" ADD "class_id" integer[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200208044636"]]
+  [1m[35m (22.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(727155331870242975)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

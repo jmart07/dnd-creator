@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_08_043112) do
+ActiveRecord::Schema.define(version: 2020_02_08_044636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2020_02_08_043112) do
     t.integer "charisma"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "race_id"
+    t.integer "class_id"
   end
 
   create_table "races", force: :cascade do |t|
