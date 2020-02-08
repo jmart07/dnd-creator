@@ -38,7 +38,7 @@ class CharacterList extends Component {
 
   render() {
     return(
-      <div>
+      <div className="characters">
         {this.state.characters.map((character, i) => {
           return <CharacterShow key={i} character={character}/>
         })}

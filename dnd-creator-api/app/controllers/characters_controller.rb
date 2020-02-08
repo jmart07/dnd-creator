@@ -48,6 +48,9 @@ class CharactersController < ApplicationController
     p "Character destroy route accessed"
 
     set_character
+    p @character.race_joins
+    # @character.race_joins.destroy(params[:race_id])
+    # @character.class_joins.destroy(params[:char_class_id])
     render json: @character.destroy()
   end
 
