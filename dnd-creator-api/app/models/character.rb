@@ -1,4 +1,4 @@
 class Character < ApplicationRecord
-  has_many :races
-  has_many :char_classes
+  has_one :char_class
+  has_one :race
 end

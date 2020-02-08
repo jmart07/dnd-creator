@@ -7,14 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 p "Seeding database..."
-p "Creating characters..."
-
-Character.create([
-  { name: "DwarfBarb", strength: 0, dexterity: 0, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0, race_id: 0, class_id: 0 },
-  { name: "ElfBard", strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1, race_id: 1, class_id: 1 },
-  { name: "HalflingCleric", strength: 2, dexterity: 2, constitution: 2, intelligence: 2, wisdom: 2, charisma: 2, race_id: 2, class_id: 2 }
-])
-
 p "Creating races..."
 
 Race.create([
@@ -55,6 +47,14 @@ Ability.create([
   { name: "Intelligence"},
   { name: "Wisdom"},
   { name: "Charisma"}
+])
+
+p "Creating characters..."
+
+Character.create([
+  { name: "DwarfBarb", strength: 0, dexterity: 0, constitution: 0, intelligence: 0, wisdom: 0, charisma: 0, race_id: 1, class_id: 1 },
+  { name: "ElfBard", strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1, race_id: 2, class_id: 2 },
+  { name: "HalflingCleric", strength: 2, dexterity: 2, constitution: 2, intelligence: 2, wisdom: 2, charisma: 2, race_id: 3, class_id: 3 }
 ])
 
 p "Done seeding."
